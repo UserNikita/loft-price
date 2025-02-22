@@ -23,6 +23,7 @@ def create_app(config: Config = None) -> web.Application:
                 allow_credentials=True,
                 expose_headers="*",
                 allow_headers="*",
+                allow_methods="*",
             )
         }
     )
