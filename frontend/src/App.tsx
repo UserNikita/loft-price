@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {MDBContainer, MDBTable, MDBTableBody, MDBTableHead} from "mdb-react-ui-kit";
+import Container from "react-bootstrap/Container"
 import CustomMap from "./pages/CustomMap.tsx";
 
 type Apartment = {
@@ -24,7 +24,7 @@ function App() {
     // }, []);
 
     return (
-        <MDBContainer>
+        <Container>
             <CustomMap/>
             {/*<MDBTable bordered>*/}
             {/*    <MDBTableHead>*/}
@@ -59,7 +59,7 @@ function App() {
             {/*        }*/}
             {/*    </MDBTableBody>*/}
             {/*</MDBTable>*/}
-        </MDBContainer>
+        </Container>
     )
 }
 

@@ -30,7 +30,7 @@ const lightingEffect = new LightingEffect({ambientLight, pointLight1, pointLight
 // const MAP_STYLE = `https://api.maptiler.com/maps/streets/style.json?key=${API_TOKEN}`
 // const MAP_STYLE = 'https://tiles.basemaps.cartocdn.com/gl/positron-gl-style/style.json'
 // const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json';
-const MAP_STYLE = BASEMAP.VOYAGER_NOLABELS
+const MAP_STYLE = BASEMAP.DARK_MATTER_NOLABELS
 
 function getTooltip({object}: PickingInfo) {
     if (!object) {
