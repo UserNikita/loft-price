@@ -5,8 +5,8 @@ from bson import ObjectId
 from .models import Apartment
 
 
-async def get_apartment_list() -> AsyncIterable[Apartment]:
-    return Apartment.find()
+async def get_apartment_list(limit: int = 10) -> AsyncIterable[Apartment]:
+    return Apartment.find().limit(limit)
 
 
 async def get_apartment(item_id: ObjectId) -> Apartment:
