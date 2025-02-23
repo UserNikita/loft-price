@@ -1,3 +1,4 @@
+import Container from "react-bootstrap/Container"
 import {HexagonLayer, AmbientLight, PointLight, LightingEffect, DeckGL} from "deck.gl";
 import Map from 'react-map-gl/maplibre';
 import type {Color, PickingInfo, MapViewState} from '@deck.gl/core';
@@ -104,24 +105,26 @@ function CustomMap() {
     ];
 
     return (
-        <DeckGL
-            layers={layers}
-            effects={[lightingEffect]}
-            initialViewState={INITIAL_VIEW_STATE}
-            controller={true}
-            getTooltip={getTooltip}
-        >
-            <Map
-                initialViewState={{
-                    longitude: -122.4,
-                    latitude: 37.8,
-                    zoom: 14
-                }}
-                style={{width: 600, height: 400}}
-                mapStyle={MAP_STYLE}
-                reuseMaps
-            />
-        </DeckGL>
+        <Container>
+            <DeckGL
+                layers={layers}
+                effects={[lightingEffect]}
+                initialViewState={INITIAL_VIEW_STATE}
+                controller={true}
+                getTooltip={getTooltip}
+            >
+                <Map
+                    initialViewState={{
+                        longitude: -122.4,
+                        latitude: 37.8,
+                        zoom: 14
+                    }}
+                    style={{width: 600, height: 400}}
+                    mapStyle={MAP_STYLE}
+                    reuseMaps
+                />
+            </DeckGL>
+        </Container>
     );
 }
 
