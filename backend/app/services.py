@@ -33,3 +33,9 @@ async def update_apartment(item_id: ObjectId, data: dict) -> Apartment:
 async def delete_apartment(item_id: ObjectId) -> None:
     item = await get_apartment(item_id)
     await item.delete()
+
+
+async def get_statistics() -> dict:
+    return {
+        "count": await Apartment.count_documents(),
+    }

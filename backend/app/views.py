@@ -13,10 +13,18 @@ routes = web.RouteTableDef()
 
 
 @docs(tags=["apartment"])
+@routes.get(APARTMENT_API_PATH + "/stats")
+async def apartments_statistics(request):
+    data = await services.get_statistics()
+    return web.json_response(data, status=200)
+
+
+@docs(tags=["apartment"])
 @routes.get(APARTMENT_API_PATH)
 async def list_apartments(request):
     items = await services.get_apartment_list()
     data = [item.dump() async for item in items]
+    data = [{**d, "price": float(d["price"])} for d in data]  # TODO: Выпилить костыль для решения проблемы с Decimal
     return web.json_response(data, status=200)
 
 

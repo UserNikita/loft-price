@@ -2,7 +2,7 @@ import aiohttp_cors
 from aiohttp import web
 from aiohttp_apispec import setup_aiohttp_apispec
 from app.db import setup_mongo
-# from .app.models import ensure_indexes
+from app.models import create_indexes
 from app.views import routes
 from app.config import Config
 
@@ -12,8 +12,7 @@ def create_app(config: Config = None) -> web.Application:
     app = web.Application()
     app['config'] = config
     app.on_startup.append(setup_mongo)
-    app.on_startup.append(setup_mongo)
-    # app.on_startup.append(ensure_indexes)  # in production should be in CD stage
+    app.on_startup.append(create_indexes)  # TODO: В продакшене делать только 1 раз
     app.add_routes(routes)
 
     cors = aiohttp_cors.setup(
